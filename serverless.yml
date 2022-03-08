@@ -1,0 +1,85 @@
+org: prakashtm
+app: sls
+service: notebookbe
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  hello:
+    handler: handler.handler
+    events:
+    # USER
+      - http:
+          path: /getSingleUser
+          method: post
+          cors: true
+      - http:
+          path: /getAllUser
+          method: get
+          cors: true
+      - http:
+          path: /addNewUser
+          method: post
+          cors: true
+      - http:
+          path: /deleteUser
+          method: delete
+          cors: true
+      - http:
+          path: /updateUser
+          method: put
+          cors: true
+    # NOTE
+      - http:
+          path: /getSingleNote
+          method: post
+          cors: true
+      - http:
+          path: /getAllNotes
+          method: get
+          cors: true
+      - http:
+          path: /addNewNote
+          method: post
+          cors: true
+      - http:
+          path: /deleteNote
+          method: delete
+          cors: true
+      - http:
+          path: /updateNote
+          method: put
+          cors: true
+    # NOTEBOOK
+      - http:
+          path: /getSingleNoteBook
+          method: post
+          cors: true
+      - http:
+          path: /getAllNoteBooks
+          method: get
+          cors: true
+      - http:
+          path: /addNewNoteBook
+          method: post
+          cors: true
+      - http:
+          path: /deleteNoteBook
+          method: post
+          cors: true
+      - http:
+          path: /deleteNoteBookTest
+          method: delete
+          cors: true
+      - http:
+          path: /updateNoteBook
+          method: put
+          cors: true
+      # - http:
+      #     path: /{proxy+}
+      #     method: any
+      #     cors: true
